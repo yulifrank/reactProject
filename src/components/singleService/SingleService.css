@@ -1,0 +1,84 @@
+.singleservicediv {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: lightblue;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: black;
+  width: 30%;
+  background-color: #acddeb;
+width: 70%;
+/* margin-top: 30%; */
+}
+  body{
+    direction: rtl;
+    z-index: -1;
+
+  }
+
+.singleservicediv > div {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.singleservicediv > div:last-child {
+  margin-bottom: 0;
+}
+
+/* Add any additional CSS styles here */
+  
+  .details{
+margin-top: 40%;
+/* margin-bottom: -10%; */
+  }
+  .addmeet{
+margin-top: -30%;
+  }
+  .oneimage{
+height: 50%;
+width: 30%;
+position: absolute;
+margin-top: 20%;
+margin-right: -20%;
+
+  }
+  .singleservicediv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgb(197, 217, 224);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: black;
+    width: 100%;
+  }
+  
+  .singleservicediv > div {
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .singleservicediv > div:last-child {
+    margin-bottom: 0;
+  }
+  
+  .oneimage {
+    width: 40%;
+    margin-top: 20px;
+    opacity: 30%;
+  }
+  
+  /* Add any additional CSS styles here */
+  

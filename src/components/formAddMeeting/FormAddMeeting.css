@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+color: aqua;
+  }
+  
+  .button {
+    background-color: #7066e0;    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+
+
+  }
+
+  
+  .dialog {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+
+  }
+  
+  .dialog-title {
+    background-color: #7066e0;
+    /* background-color: #2196f3; */
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .form-item {
+    margin-bottom: 10px;
+  }
+  
+  .textField {
+    width: 100%;
+    cursor: pointer;
+
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .actions-button {
+    margin-left: 10px;
+  }
+  .css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+    width: 40%;
+    background-color: rgb(37, 113, 88);
+  }
+  body{
+    background-color: #ffffff;
+  }
+  .css-sghohy-MuiButtonBase-root-MuiButton-root {
+    background-color: black;
+  }
+  

@@ -1,0 +1,146 @@
+/* CSS for the fixed layout */
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.sidebar a {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  color: #fff;
+  background-color: #94d4e6;
+}
+
+.sidebar a div {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.sidebar a:hover div {
+  background-color: #94d4e6;
+  color: #fff;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* CSS for the BusinessDetailsComponent */
+.business-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.business-details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 20%;
+}
+
+.business-name {
+  color: rgb(109, 107, 107);
+  font-size: 50px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 3px 3px 3px #94d4e6;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.business-name::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 5%;
+  width: 60%;
+  background-color: #94d4e6;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: shineAnimation 3s infinite;
+}
+
+.business-name::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 100%;
+  height: 5%;
+  width: 60%;
+  background-color: #94d4e6;
+  transform: scaleX(0);
+  transform-origin: right;
+  animation: shineAnimation 3s infinite;
+}
+
+.business-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.business-address,
+.business-phone,
+.business-owner {
+  color: #666;
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.business-logo {
+  width: 20%;
+  margin-right: -15%;
+  margin-top: -2%;
+  margin-left: -30%;
+}
+
+/* CSS for the SingleService */
+.singleservicediv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #91b8d3;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: black;
+  background-color: #d0e8ef;
+  width: 80%;
+  margin-top: 30%;
+}
+
+.singleservicediv > div {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.singleservicediv > div:last-child {
+  margin-bottom: 0;
+}
+
+/* Add any additional CSS styles here */
+.css-sghohy-MuiButtonBase-root-MuiButton-root{background-color: #7cbbcc !important ;
+margin-left: 20%; }
+.css-sghohy-MuiButtonBase-root-MuiButton-root:hover{background-color: #4a4c4d !important ; }
