@@ -4,11 +4,12 @@ import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import './LoginPage.css';
 import Swal from 'sweetalert2'
+import BusinessStore from '../../stores/businessDetails'
 
 const LoginPage = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const [isLogin, setIsLogin] = useState(false);
+  // const [isLogin, setIsLogin] = useState(false);
   
   const handleLogIn = async () => {
     const response = await fetch("http://localhost:8787/login", {
@@ -21,15 +22,15 @@ const LoginPage = () => {
       },
     });
     console.log(response.statusText);
-    
-    if (response.status === 200) 
-    {
-      setIsLogin(true);
-      let timerInterval;
 
+    if (response.status === 200||localStorage.getItem("isLogin")===true) 
+    {
+      localStorage.setItem("isLogin",true);
+      BusinessStore.setIsLogin(true);
+      let timerInterval;
          Swal.fire({
-        title: "You are identified as an administrator",
-        html: "Go to the site in <b></b> seconds.",
+        title: "זוהית כמנהל",
+        html: "תועבר לאתר בעוד <b></b> שניות.",
         timer: 1000,
         timerProgressBar: true,
         didOpen: () => {
@@ -45,14 +46,14 @@ const LoginPage = () => {
       }).then((result) => {
         if (result.dismiss === Swal.DismissReason.timer) {
           console.log("I was closed by the timer");
-          window.location.href = "/admin";
+          // window.location.href = "/admin";
         }
       });
     }
     else{
          Swal.fire({
-        title: "Wrong password/name",
-        text: "No access to normal user",
+        title: "שם/סיסמא שגויים",
+        text: "אין גישה למשתמש פרטי",
         icon: "error"
       });
     }

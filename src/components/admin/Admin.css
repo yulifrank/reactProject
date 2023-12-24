@@ -1,25 +1,15 @@
-.buttonechange{
-    left: 20%;
-    margin-left: 100px;
-}
-body{
-    background-color: #ffffff;
-  }
-  .buttonechange{
-    top :0;
-    margin-top: 0;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: flex-start;
-    padding: 1rem;
-  }
-  .buttonechange{
-top:-20%  }
-
-.css-pl8gqh-MuiStack-root {
-  margin-left: 50%;
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  /* z-index: 1000000; */
+  margin-top: 20%;
 }
 
-  
+.button-container button {
+  margin-right: 10px;
+}
+
+.component-container {
+  margin-top: 20px;
+  z-index: -100;
+}

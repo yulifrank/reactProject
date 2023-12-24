@@ -1,0 +1,32 @@
+.singlemeetingtoadmin{
+    /* margin-top: 30%; */
+    width: 30%;
+    border: solid 2px black;
+    /* height: 1000px; */
+    height: 400px;
+    /* margin-bottom: 2%; */
+}
+.hhh{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.css-1p7a5wk-MuiButtonBase-root-MuiFab-root:hover {
+    color: rgb(234, 238, 238) !important;
+}
+.css-1p7a5wk-MuiButtonBase-root-MuiFab-root {
+    color: rgb(23, 27, 27) !important;
+}
+.css-1p7a5wk-MuiButtonBase-root-MuiFab-root{
+    background-color: #9acddf !important ;
+  }
+  .css-1p7a5wk-MuiButtonBase-root-MuiFab-root:hover{
+    background-color: #1f4756 !important ;
+  }
+
+.button1{
+    margin-top: 20%;
+}

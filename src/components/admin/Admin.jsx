@@ -12,25 +12,39 @@ import Button from '@mui/material/Button';
 import { useState } from "react";
 import MeetingList from "../meetingList/MeetingList";
 import ServicesList from "../servicesList/ServicesList";
+import './Admin.css'
+import { observer } from "mobx-react";
+import BusinessStore from '../../stores/businessDetails'
+import LoginPage from "../loginPage/LoginPage";
+import { Outlet, Link } from "react-router-dom";
 
- 
-const Admin = () => {
-  const [showMeetingsOrServices,SetShowMeetingsOrServices]=React.useState(false)
-    return (
+
+
+const Admin = observer(() => {
+  return (
     <>
-<BusinessDetailsComponent></BusinessDetailsComponent>  
-<div className="button-container">
-        <Stack spacing={2} direction="row">
-          <Button variant="outlined" onClick={() => SetShowMeetingsOrServices(false)}>Business Services</Button>
-          <Button variant="outlined" onClick={() => SetShowMeetingsOrServices(true)}>Meetings</Button>
-        </Stack>
-        
-  </div>
-    {showMeetingsOrServices ? <MeetingList></MeetingList>:<ServicesList></ServicesList>}
+      <BusinessDetailsComponent></BusinessDetailsComponent>
+      {/* <div className='button-container'>
+          <Button variant="outlined" >Business Services</Button>
+          <Button variant="outlined" >Meetings</Button>
+        </div> */}
 
-</>
+      {/* <div className="component-container">
+          {showMeetingsOrServices ? <MeetingList /> : <ServicesList />}
+        </div>   */}
+      {BusinessStore.isLogin||localStorage.getItem("isLogin")==="true" ?
+        <>
+          <div className='button-container'>
+            <Button variant="outlined" ><Link to="./services">services</Link></Button>
+            <Button variant="outlined" ><Link to="./meeting">meeting</Link></Button>
+          </div>
+          <Outlet />
+        </>
+        :
+        <LoginPage />}
+    </>
 
-    );
-  };
-  
-  export default Admin;
+  );
+});
+
+export default Admin;

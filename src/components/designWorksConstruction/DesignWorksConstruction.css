@@ -9,6 +9,7 @@
   width: 200px;
   background-color: #f1f1f1;
   padding: 20px;
+  margin-top: 15%;
 }
 
 .sidebar a {
@@ -120,14 +121,14 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  padding: 20px;
   border: 2px solid #91b8d3;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   color: black;
   background-color: #d0e8ef;
-  width: 80%;
-  margin-top: 30%;
+  width: 100%;
+  margin-top: 50%;
+  height: 40vw;
 }
 
 .singleservicediv > div {
@@ -143,4 +144,4 @@
 /* Add any additional CSS styles here */
 .css-sghohy-MuiButtonBase-root-MuiButton-root{background-color: #7cbbcc !important ;
 margin-left: 20%; }
-.css-sghohy-MuiButtonBase-root-MuiButton-root:hover{background-color: #4a4c4d !important ; }
+.css-sghohy-MuiButtonBase-root-MuiButton-root:hover{background-color: #7d99a6 !important ; }

@@ -4,14 +4,13 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import FormAddMeeting from './components/formAddMeeting/FormAddMeeting'
 import LoginPage from './components/loginPage/LoginPage'
-import MyComponent from './components/MyComponent'
 // import MyComponent from './components/MyComponent'
 
 function App() {
   return (
     <>
-    <FormAddMeeting></FormAddMeeting>
-    <MyComponent></MyComponent>
+    {/* <FormAddMeeting></FormAddMeeting>
+    <MyComponent></MyComponent> */}
    </>
   )
 }

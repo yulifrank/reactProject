@@ -2,7 +2,7 @@
 import { Outlet, useParams } from 'react-router-dom';
 import BusinessDetailsComponent from '../businessDetails/BusinessDetailsComponent';
 import BusinessStore from '../../stores/businessDetails';
-import './DesignWorksConstruction.css'; // Import the CSS file
+import './DesignWorksConstruction.css'; 
 import SingleService from '../singleService/SingleService';
 
 const DesignWorksConstruction = () => {

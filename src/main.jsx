@@ -9,6 +9,8 @@ import InitService from './components/singleService/SingleService.jsx'
 import LoginPage from './components/loginPage/LoginPage.jsx'
 import Admin from './components/admin/Admin'
 import SingleService from './components/singleService/SingleService.jsx'
+import ServicesList from './components/servicesList/ServicesList.jsx'
+import MeetingList from './components/meetingList/MeetingList.jsx'
 
 
 const router = createBrowserRouter([
@@ -23,16 +25,25 @@ const router = createBrowserRouter([
             errorElement:<div>error contant not found</div>
           }]
   },
-  {
-    path: '/admin-login page',
-    element: <LoginPage />,
-    errorElement:<div>error app</div>,
-  },
+ 
   {
     path: '/admin',
     element: <Admin />,
-    errorElement:<div>error app</div>,
-  },
+    errorElement: <div>error contants</div>,
+    children: [
+   
+      {
+        path: 'services',
+        element: <ServicesList/>,
+        errorElement: <div>error contant not found</div>
+      },
+      {
+        path: 'meeting',
+        element:<MeetingList/>,
+        errorElement: <div>error contant not found</div>
+      }
+    ]
+  }
   
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(

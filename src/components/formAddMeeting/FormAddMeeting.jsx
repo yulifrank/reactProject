@@ -13,20 +13,27 @@ import TextField from '@mui/material/TextField';
 import './FormAddMeeting.css'
 import Swal from 'sweetalert2'
 import Box from '@mui/material/Box';
+import BusinessStore from '../../stores/businessDetails'
 
-const FormAddMeeting = observer(() => {
+const FormAddMeeting = observer(({ i = 0 }) => {
+
+  const service = BusinessStore.businessServices.find(
+    
+    (service) => service.id === String(i)
+  );
   const [isOpen, setIsOpen] = useState(false);//טופס של הוספת פגישה יוצג במקרה בו מזתנה זה  true.
   // const [isFormValid, setIsFormValid] = useState(false);//
   const [formData, setFormData] = useState({
-    serviceName: '',
-    serviceDescription: '',
-    servicePrice: '',
+    serviceName: service.name,
+    serviceDescription: service.describtion,
+    servicePrice: service.price,
     clientName: '',
     clientPhone: '',
     clientEmail: '',
     dateTime: '',
- 
+
   });
+
   //פונקציה שמשנה את אחד מהאינפוטים בשניה שהוא משתנה(את הustateבמקום המתאים)
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -37,23 +44,31 @@ const FormAddMeeting = observer(() => {
   //אם לא היא מקפיצה הודעה שלא מולאו כל הפרטים ולא מוסיפה פגישה!
   //לאחר מכן העדכנת את המשתנים של ה usestate להיות ריקים...
   const handleSubmit = (event) => {
+    console.log("gggggggggggggggg", i)
+    console.log(formData.serviceName,formData.serviceDescription,formData.servicePrice)
     // event.preventDefault();
-    if (formData.clientEmail !== "" && formData.dateTime !== "" && formData.clientName !== "" && formData.clientName !== "") {
+    if (formData.clientEmail !== "" && formData.dateTime !== "" && formData.clientName !== "" && formData.clientName !== "")
+     {
       // פה נלך לבקש מהשרת בקשה להכניס את הפגישה 
       // ונלך לעדכן  ת מערך הפגישות
-      MeetingStore.addMeeting(formData);
-      Swal.fire({
-        title: "נקבעה פגישה",
-        text: "פרטיך נקלטו בהצלחה",
-        icon: "success"
-      });
-    }
-    else {
-      Swal.fire({
-        title: "לא ניתן לקבוע את הפגישה",
-        text: "אחד או יותר מהשדות לא מולאו",
-        icon: "error"
-      });
+  MeetingStore.addMeeting(formData)
+      // {
+
+      //   console.log("addddddddddddddddddddddddddddddddddddddddd")
+      //   Swal.fire({
+      //     title: "נקבעה פגישה",
+      //     text: "פרטיך נקלטו בהצלחה",
+      //     icon: "success"
+      //   });
+      // }
+      // if (MeetingStore.addMeeting(formData) === false) 
+      //   Swal.fire({
+      //     title: "לא ניתן לקבוע את הפגישה",
+      //     text: "מתנצלים!!!ו",
+      //     icon: "error"
+      //   });
+      
+
     }
     setIsOpen(false);
     console.log("form", formData.clientEmail, formData.dateTime)
@@ -83,22 +98,22 @@ const FormAddMeeting = observer(() => {
           <DialogTitle>קביעת פגישה</DialogTitle>
           <DialogContent className="dialog">
             <form onSubmit={handleSubmit} className="form">
-                 <div className="form-item">
+              <div className="form-item">
                 {/* <label>Name</label> */}
                 <TextField
                   fullWidth
-                  label ="Name"
+                  label="Name"
                   name="clientName"
                   value={formData.clientName}
                   onChange={handleInputChange}
                   placeholder="clientName"
                   className="textField"
                 />
-             </div>
-                 <div className="form-item">
-                 {/* <label>Email</label> */}
+              </div>
+              <div className="form-item">
+                {/* <label>Email</label> */}
                 <TextField
-                  label ="Email"
+                  label="Email"
                   fullWidth
                   name="clientEmail"
                   value={formData.clientEmail}
@@ -106,35 +121,35 @@ const FormAddMeeting = observer(() => {
                   placeholder="clientEmail"
                   className="textField"
                 />
-             </div>
-                 <div className="form-item">
+              </div>
+              <div className="form-item">
                 {/* <label>Phone</label> */}
                 <TextField
                   fullWidth
-                  label ="Phone"
+                  label="Phone"
                   name="clientPhone"
                   value={formData.clientPhone}
                   onChange={handleInputChange}
                   placeholder="clientPhone"
                   className="textField"
                 />
-             </div>
-                <div className="form-item">
-                  {/* <label>DateTime</label> */}
-                  <TextField
-                    className="textField"
-                    label ="DateTime"
-                    fullWidth
-                    type="datetime-local"
-                    name="dateTime"
-                    value={formData.dateTime}
-                    onChange={handleInputChange}
-                    InputLabelProps={{
-                      shrink: true,
+              </div>
+              <div className="form-item">
+                {/* <label>DateTime</label> */}
+                <TextField
+                  className="textField"
+                  label="DateTime"
+                  fullWidth
+                  type="datetime-local"
+                  name="dateTime"
+                  value={formData.dateTime}
+                  onChange={handleInputChange}
+                  InputLabelProps={{
+                    shrink: true,
 
-                    }}
-                  />
-             </div>
+                  }}
+                />
+              </div>
             </form>
           </DialogContent>
           <DialogActions>

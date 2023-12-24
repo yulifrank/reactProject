@@ -1,14 +1,18 @@
 import MeetingStore from '../../stores/meeting'
 import { observer } from 'mobx-react';
 import SingleMeeting from '../singleMeeting/SingleMeeting';
-const MeetingList = observer(() => {
+import { useEffect } from "react";
+import './MeetingList.css'
 
+const MeetingList = observer(() => {
+      
+      useEffect(() => {
+        MeetingStore.initialMeettingList();
+      },[])
     return (
         <>
-            <div>
-                meetings
-                {MeetingStore.meettingList.length}
-            {MeetingStore.currentList.map((c, i) => <SingleMeeting i={i} ></SingleMeeting>)}
+            <div className='allMeeting'>
+            {MeetingStore.meettingList.map((c,i) => <SingleMeeting i={i} ></SingleMeeting>)}
       
             </div>
         </>

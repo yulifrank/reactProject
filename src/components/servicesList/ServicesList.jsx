@@ -1,16 +1,38 @@
+import React from 'react';
 import SingleService from '../singleService/SingleService';
-import BusinessStore from '../../stores/businessDetails'
+import BusinessStore from '../../stores/businessDetails';
 import { observer } from 'mobx-react';
-const ServicesList = observer(() => {
+import './ServicesList.css';
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import NavigationIcon from '@mui/icons-material/Navigation';
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
+
+const ServicesList = observer(() => {
     return (
         <>
-            <div>
-                serviceeeee
-            </div>   
-            {BusinessStore.businessServices.map((c, i) => <a href={i} key={i} >{c.name}</a>)}
 
+        <div className="hhh">
+            {BusinessStore.businessServices.map((c, i) =>
+                <div className='singlemeetingtoadmin'>
+                    <h3>{c.name}</h3>
+                    <div className='des'>{c.describtion}</div>
+                    <div className='button1'>
+                        <Fab color="secondary" aria-label="edit">
+                            <EditIcon />
+                        </Fab>
+                    </div>
+                </div>)}
+
+        </div>
         </>
-    );
+
+    )
 });
-export default ServicesList
+
+export default ServicesList;
