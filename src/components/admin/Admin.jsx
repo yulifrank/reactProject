@@ -17,22 +17,25 @@ import { observer } from "mobx-react";
 import BusinessStore from '../../stores/businessDetails'
 import LoginPage from "../loginPage/LoginPage";
 import { Outlet, Link } from "react-router-dom";
-
+import { useEffect } from "react";
 
 
 const Admin = observer(() => {
+  useEffect(() => {
+    if (localStorage.getItem("isLogin") === "true") {
+      BusinessStore.setIsLogin(true);
+    }
+    BusinessStore.initialbusinessServices();
+    BusinessStore.initialBusinessDetails();
+   
+   
+    console.log("log",BusinessStore.businessServices.length);
+
+  }, []);
   return (
     <>
       <BusinessDetailsComponent></BusinessDetailsComponent>
-      {/* <div className='button-container'>
-          <Button variant="outlined" >Business Services</Button>
-          <Button variant="outlined" >Meetings</Button>
-        </div> */}
-
-      {/* <div className="component-container">
-          {showMeetingsOrServices ? <MeetingList /> : <ServicesList />}
-        </div>   */}
-      {BusinessStore.isLogin||localStorage.getItem("isLogin")==="true" ?
+      {BusinessStore.isLogin ?
         <>
           <div className='button-container'>
             <Button variant="outlined" ><Link to="./services">services</Link></Button>

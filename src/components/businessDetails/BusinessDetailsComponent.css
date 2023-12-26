@@ -96,8 +96,14 @@
 .business-phone,
 .business-owner {
   color: #666;
-  font-size: 18px;
+  font-size: 40%;
   margin: 5px 0;
+}
+.business-des{
+  color: #666;
+  font-size: 75%;
+  width: 60%;
+margin-right: 15%;
 }
 
 .business-logo {
@@ -107,4 +113,7 @@
 }
 body{
   background-color: #ffffff;
+}
+.css-sghohy-MuiButtonBase-root-MuiButton-root {
+  margin-right: 60% !important;
 }

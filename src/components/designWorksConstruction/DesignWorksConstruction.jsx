@@ -2,16 +2,26 @@
 import { Outlet, useParams } from 'react-router-dom';
 import BusinessDetailsComponent from '../businessDetails/BusinessDetailsComponent';
 import BusinessStore from '../../stores/businessDetails';
-import './DesignWorksConstruction.css'; 
+import './DesignWorksConstruction.css';
 import SingleService from '../singleService/SingleService';
+import { useEffect } from 'react';
+import { observer } from 'mobx-react';
 
-const DesignWorksConstruction = () => {
+
+const DesignWorksConstruction = observer(() => {
+  useEffect(() => {
+    localStorage.removeItem('isLogin');
+    BusinessStore.initialBusinessDetails();
+     console.log("log",BusinessStore.businessServices.length);
+
+  }, []);
+
   const { id } = useParams();
 
   return (
     <>
-    <header className='header'>
-      <BusinessDetailsComponent></BusinessDetailsComponent>
+      <header className='header'>
+        <BusinessDetailsComponent></BusinessDetailsComponent>
       </header>
       <div className="container">
         <div className="sidebar">
@@ -20,16 +30,17 @@ const DesignWorksConstruction = () => {
               <div>{c.name}</div>
             </a>
           ))}
+
         </div>
         <div className="content">
-          
-          {id?  <Outlet context={[id]} />:<SingleService context={[0]}></SingleService>}
-        
+
+          {id ? <Outlet context={[id]} /> : <SingleService context={[0]}></SingleService>}
+
         </div>
       </div>
-      
+
     </>
   );
-};
+});
 
 export default DesignWorksConstruction;

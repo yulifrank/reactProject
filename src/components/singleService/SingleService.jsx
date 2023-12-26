@@ -11,31 +11,35 @@ import MeetingStore from '../../stores/meeting'
 
 
 const SingleService = observer((x) => {
-  const id = useOutletContext()|0;
+  const id = useOutletContext()|x;
   const service = BusinessStore.businessServices.find(
     (service) => service.id === String(id)
   );
   useEffect(() => {
     MeetingStore.initialMeettingList();
+    // BusinessStore.initialbusinessServices();
+    console.log(BusinessStore. businessServices)
+    console.log("service", BusinessStore.businessServices);
+
   },[])
+
 
   return (
     <>
       <div className="singleservicediv">
         <div className="details">
-      {service && <h2>{service.name}</h2>}
-        {service && <div>{service.describtion}</div>}
+      {service &&service.name &&<h2>{service.name}<div></div></h2>}
+        {service && service.describtion&&<div>{service.describtion}</div>}
         <div className="image">
-         {service&& <img className="allimage"  src={service.image} alt="Service Image" />} 
-         {service&& <img className="allimage"  src={service.image2} alt="Service Image" />}
-         {service&& <img className="allimage"  src={service.image3} alt="Service Image" />}
+         {service && service.image&& <img className="allimage"  src={service.image} alt="Service Image" />} 
+         {service && service.image2&& <img className="allimage"  src={service.image2} alt="Service Image" />}
+         {service && service.image3&& <img className="allimage"  src={service.image3} alt="Service Image" />}
 
           </div>
         </div>
         <div className="addmeet">
           {/* //כאן תהיה התמונה  */}
-        
-          
+      
         <FormAddMeeting i={id} ></FormAddMeeting>
         </div>
       </div>

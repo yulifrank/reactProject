@@ -23,7 +23,7 @@ const LoginPage = () => {
     });
     console.log(response.statusText);
 
-    if (response.status === 200||localStorage.getItem("isLogin")===true) 
+    if (response.status === 200) 
     {
       localStorage.setItem("isLogin",true);
       BusinessStore.setIsLogin(true);

@@ -47,8 +47,9 @@ class MeetingStore {
         console.log(response.statusText);
         if (response.status === 200) {
             this.meettingList = ([...this.meettingList, meeting])
+
             console.log("true")
-            console.log(this.meettingList.length)
+            console.log("metting",this.meettingList.length)
             Swal.fire({
                 title: "נקבעה פגישה",
                 text: "פרטיך נקלטו בהצלחה",
@@ -69,8 +70,11 @@ class MeetingStore {
         const response = await fetch("http://localhost:8787/appointments");
         const data = await response.json();
         console.log(data);
-        this.meettingList = ([...data]);
+    
+        const sortedData = [...data].sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
+        this.meettingList = sortedData;
       }
+      
 }
 export default new MeetingStore();
 

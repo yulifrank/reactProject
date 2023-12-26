@@ -15,18 +15,28 @@ import Swal from 'sweetalert2'
 import Box from '@mui/material/Box';
 import BusinessStore from '../../stores/businessDetails'
 
+import { useEffect } from "react";
 const FormAddMeeting = observer(({ i = 0 }) => {
 
   const service = BusinessStore.businessServices.find(
-    
     (service) => service.id === String(i)
   );
+  useEffect(() => {
+    BusinessStore.initialbusinessServices();
+    MeetingStore.initialMeettingList();
+    console.log("i",i);
+    console.log("service:-------------",BusinessStore.businessServices)
+    
+
+  },[])
+
+  //איך אני יוצרת אוביקט מסוג meeting?
   const [isOpen, setIsOpen] = useState(false);//טופס של הוספת פגישה יוצג במקרה בו מזתנה זה  true.
   // const [isFormValid, setIsFormValid] = useState(false);//
   const [formData, setFormData] = useState({
-    serviceName: service.name,
-    serviceDescription: service.describtion,
-    servicePrice: service.price,
+    name: service&& service.name,
+    describtion: service?.describtion,
+    price: service?.price,
     clientName: '',
     clientPhone: '',
     clientEmail: '',
@@ -52,6 +62,7 @@ const FormAddMeeting = observer(({ i = 0 }) => {
       // פה נלך לבקש מהשרת בקשה להכניס את הפגישה 
       // ונלך לעדכן  ת מערך הפגישות
   MeetingStore.addMeeting(formData)
+
       // {
 
       //   console.log("addddddddddddddddddddddddddddddddddddddddd")
@@ -74,9 +85,9 @@ const FormAddMeeting = observer(({ i = 0 }) => {
     console.log("form", formData.clientEmail, formData.dateTime)
     // איפוס המשתנים.........
     setFormData({
-      serviceName: '',
-      serviceDescription: '',
-      servicePrice: '',
+      name: '',
+      describtion: '',
+      price: '',
       clientName: '',
       clientPhone: '',
       clientEmail: '',
@@ -86,7 +97,7 @@ const FormAddMeeting = observer(({ i = 0 }) => {
   };
 
 
-
+//שבי? יש מצב שאני נותנת לך עוד חמש דקות להשתלט שוב? םשוט אנחנו  עושות שניה שיר לאחותי בזום אוקי?
 
 
 
