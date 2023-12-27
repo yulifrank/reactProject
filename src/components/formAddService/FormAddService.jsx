@@ -9,6 +9,9 @@ import TextField from '@mui/material/TextField';
 import Swal from 'sweetalert2'
 import BusinessStore from '../../stores/businessDetails'
 import Image29 from "../../assets/images/29.jpg";
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 const FormSetService = observer(({ servNum = 0 }) => {
@@ -26,6 +29,7 @@ const FormSetService = observer(({ servNum = 0 }) => {
         image2:Image29,
         image3: Image29
     })
+    //הלקוח אינו יכול ל+
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -66,7 +70,7 @@ const FormSetService = observer(({ servNum = 0 }) => {
 
         // Reset the form after submitting
         setFormData({
-            id:BusinessStore.businessServices.length,
+            id:String(BusinessStore.businessServices.length),
             name: "",
             describtion: "",
             price: "",
@@ -78,8 +82,9 @@ const FormSetService = observer(({ servNum = 0 }) => {
     };
     return (
         <>
-            <Button variant="contained" onClick={() => setIsOpen(true)}>הוספת שירות</Button>
-
+            <Fab color="secondary" onClick={() => setIsOpen(true)} aria-label="edit">
+        <AddIcon />
+      </Fab>
             <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
                 <DialogTitle>  הוספת שירות לעסק </DialogTitle>
                 <DialogContent>

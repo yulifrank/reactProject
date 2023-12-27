@@ -18,7 +18,6 @@ import Image36 from "../assets/images/36.jpg";
 import Image32 from "../assets/images/32.jpg";
 import Image30 from "../assets/images/30.jpg";
 import Image29 from "../assets/images/29.jpg";
-
 import Image18 from "../assets/images/18.jpg";
 import Image19 from "../assets/images/19.jpg";
 import Swal from 'sweetalert2'
@@ -99,6 +98,7 @@ class BusinessStore {
       description: "אנחנו צוות הבנייה, קבוצת אנשי מקצוע מתחום הבניה , התכנון וההנדסה האזרחית בעלי ניסיון רב שנים של עשייה ופעילות בתחומים שונים"
 
     }
+    
   isLogin = false;
 
 
@@ -219,7 +219,6 @@ class BusinessStore {
     }
   };
   initialBusinessDetails = async () => {
-    debugger;
     const response = await fetch("http://localhost:8787/businessData");
     const data = await response.json();
     console.log(data);

@@ -14,19 +14,23 @@ import './FormAddMeeting.css'
 import Swal from 'sweetalert2'
 import Box from '@mui/material/Box';
 import BusinessStore from '../../stores/businessDetails'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+
+
+
 
 import { useEffect } from "react";
-const FormAddMeeting = observer(({ i = 0 }) => {
+const FormAddMeeting = observer(({ i  }) => {
 
-  const service = BusinessStore.businessServices.find(
-    (service) => service.id === String(i)
-  );
+ 
   useEffect(() => {
     BusinessStore.initialbusinessServices();
     MeetingStore.initialMeettingList();
     console.log("i",i);
     console.log("service:-------------",BusinessStore.businessServices)
-    
+    console.log("serv name",i?.name)
 
   },[])
 
@@ -34,28 +38,47 @@ const FormAddMeeting = observer(({ i = 0 }) => {
   const [isOpen, setIsOpen] = useState(false);//טופס של הוספת פגישה יוצג במקרה בו מזתנה זה  true.
   // const [isFormValid, setIsFormValid] = useState(false);//
   const [formData, setFormData] = useState({
-    name: service&& service.name,
-    describtion: service?.describtion,
-    price: service?.price,
+    serviceName: i?.name,
+    serviceDescription: i?.describtion,
+    servicePrice: i?.price,
     clientName: '',
     clientPhone: '',
     clientEmail: '',
-    dateTime: '',
-
+    meetingDateTime: null,
   });
 
   //פונקציה שמשנה את אחד מהאינפוטים בשניה שהוא משתנה(את הustateבמקום המתאים)
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
+
+  const handleInputChange = (e) => {
+    setFormData((prevData) => ({
+        ...prevData,
+        [e.target.name]: e.target.value,
+    }));
+};
+const handleDateTimeChange = (dateTime) => {
+    const formattedDateTime = dateTime.format('YYYY-MM-DDTHH:mm:ss');
+    setFormData((prevData) => ({
+        ...prevData,
+        dateTime: formattedDateTime,
+    }));
+    handleInputChange({ target: { name: 'dateTime', value: formattedDateTime } });
+};
+
+
+
+
+
+
+
+
+
   //פונקצית שליחה היא בודקת האם מולאו כל הפרטים
   // אם כן  היא קוראת לפונקצית הוספת פגישה של ה סטור ומקפיצה הודעה שה"פגישה נקבעה אחרת
   //אם לא היא מקפיצה הודעה שלא מולאו כל הפרטים ולא מוסיפה פגישה!
   //לאחר מכן העדכנת את המשתנים של ה usestate להיות ריקים...
   const handleSubmit = (event) => {
-    console.log("gggggggggggggggg", i)
-    console.log(formData.serviceName,formData.serviceDescription,formData.servicePrice)
+    console.log("gggggggggggggggg", )
+    console.log(formData.name,formData.describtion,formData.price)
     // event.preventDefault();
     if (formData.clientEmail !== "" && formData.dateTime !== "" && formData.clientName !== "" && formData.clientName !== "")
      {
@@ -63,39 +86,20 @@ const FormAddMeeting = observer(({ i = 0 }) => {
       // ונלך לעדכן  ת מערך הפגישות
   MeetingStore.addMeeting(formData)
 
-      // {
-
-      //   console.log("addddddddddddddddddddddddddddddddddddddddd")
-      //   Swal.fire({
-      //     title: "נקבעה פגישה",
-      //     text: "פרטיך נקלטו בהצלחה",
-      //     icon: "success"
-      //   });
-      // }
-      // if (MeetingStore.addMeeting(formData) === false) 
-      //   Swal.fire({
-      //     title: "לא ניתן לקבוע את הפגישה",
-      //     text: "מתנצלים!!!ו",
-      //     icon: "error"
-      //   });
-      
-
     }
     setIsOpen(false);
     console.log("form", formData.clientEmail, formData.dateTime)
     // איפוס המשתנים.........
     setFormData({
-      name: '',
-      describtion: '',
-      price: '',
+      serviceName: i?.name,
+      serviceDescription:i?.describtion,
+      servicePrice: i?.price,
       clientName: '',
       clientPhone: '',
       clientEmail: '',
-      dateTime: '',
-    });
+      meetingDateTime: null,    });
 
   };
-
 
 //שבי? יש מצב שאני נותנת לך עוד חמש דקות להשתלט שוב? םשוט אנחנו  עושות שניה שיר לאחותי בזום אוקי?
 
@@ -146,7 +150,7 @@ const FormAddMeeting = observer(({ i = 0 }) => {
                 />
               </div>
               <div className="form-item">
-                {/* <label>DateTime</label> */}
+                {/* <label>DateTime</label>
                 <TextField
                   className="textField"
                   label="DateTime"
@@ -159,8 +163,34 @@ const FormAddMeeting = observer(({ i = 0 }) => {
                     shrink: true,
 
                   }}
-                />
+                /> */}
+
+
+
+<LocalizationProvider dateAdapter={AdapterDayjs}>
+                        <DateTimePicker
+                            renderInput={(props) => (
+                                <TextField
+                                    {...props}
+                                    variant="outlined"
+                                    className="inputs"
+                                    name="dateTime"
+                                    label="Meeting Date and Time"
+                                />
+                            )}
+                            value={formData.dateTime}
+                            onChange={handleDateTimeChange}
+                            disablePast
+                            required
+                        />
+                    </LocalizationProvider>
+
+
+
+
               </div>
+  
+
             </form>
           </DialogContent>
           <DialogActions>
@@ -174,3 +204,7 @@ const FormAddMeeting = observer(({ i = 0 }) => {
   )
 })
 export default FormAddMeeting
+
+
+
+

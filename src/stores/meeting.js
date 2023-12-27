@@ -49,20 +49,21 @@ class MeetingStore {
             this.meettingList = ([...this.meettingList, meeting])
 
             console.log("true")
+            console.log("true")
             console.log("metting",this.meettingList.length)
             Swal.fire({
                 title: "נקבעה פגישה",
                 text: "פרטיך נקלטו בהצלחה",
                 icon: "success"
               });
-              return
+              return true
         }
         Swal.fire({
             title: 'error',
             text: 'לא ניתן לקבוע את הפגישה',
             icon: "error"
           });
-          return
+          return false
       
      
     }
@@ -72,7 +73,7 @@ class MeetingStore {
         console.log(data);
     
         const sortedData = [...data].sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
-        this.meettingList = sortedData;
+        this.meettingList =  sortedData;
       }
       
 }

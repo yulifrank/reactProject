@@ -18,6 +18,7 @@ import BusinessStore from '../../stores/businessDetails'
 import LoginPage from "../loginPage/LoginPage";
 import { Outlet, Link } from "react-router-dom";
 import { useEffect } from "react";
+import Footer from "../footer/Footer";
 
 
 const Admin = observer(() => {
@@ -26,6 +27,7 @@ const Admin = observer(() => {
       BusinessStore.setIsLogin(true);
     }
     BusinessStore.initialbusinessServices();
+    console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
     BusinessStore.initialBusinessDetails();
    
    
@@ -34,6 +36,7 @@ const Admin = observer(() => {
   }, []);
   return (
     <>
+    <div className="alll">
       <BusinessDetailsComponent></BusinessDetailsComponent>
       {BusinessStore.isLogin ?
         <>
@@ -45,6 +48,10 @@ const Admin = observer(() => {
         </>
         :
         <LoginPage />}
+              <footer className='footer'>
+        <Footer></Footer>
+      </footer>
+      </div>
     </>
 
   );

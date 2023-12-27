@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Box, Button, TextField } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
@@ -10,6 +10,28 @@ const LoginPage = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   // const [isLogin, setIsLogin] = useState(false);
+  useEffect(() => {
+
+    // if(localStorage.getItem("firstadd")=="true")
+    // {
+    //   console.log("set first time")
+    // }
+    // else{
+    //   localStorage.setItem("firstadd",true)
+    //   console.log(BusinessStore.businessDetails.description)
+    //   console.log(BusinessStore.businessDetails.address)
+    //   console.log(BusinessStore.businessDetails.name)
+    BusinessStore.initBusinessDetails(BusinessStore.businessDetails);
+  // }
+  //  BusinessStore.initialBusinessDetails()
+    console.log("log",BusinessStore.businessServices.length);
+
+  }, );
+
+
+
+
+
   
   const handleLogIn = async () => {
     const response = await fetch("http://localhost:8787/login", {

@@ -9,6 +9,9 @@ import TextField from '@mui/material/TextField';
 import Swal from 'sweetalert2'
 import BusinessStore from '../../stores/businessDetails'
 import { useEffect } from "react";
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 const FormUpdateBusinessData = observer(({ servNum = 0 }) => {
@@ -71,8 +74,10 @@ const FormUpdateBusinessData = observer(({ servNum = 0 }) => {
     };
     return (
         <>
-            <Button variant="contained" onClick={() => setIsOpen(true)}>שינוי פרטי שירות</Button>
-
+            {/* <Button variant="contained" onClick={() => setIsOpen(true)}>שינוי פרטי עסק</Button> */}
+            <Fab color="blue"  onClick={() => setIsOpen(true)}  aria-label="add">
+        <EditIcon />
+      </Fab>
             <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
                 <DialogTitle>  הוספת שירות לעסק </DialogTitle>
                 <DialogContent>

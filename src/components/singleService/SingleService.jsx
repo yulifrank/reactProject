@@ -17,6 +17,8 @@ const SingleService = observer((x) => {
   );
   useEffect(() => {
     MeetingStore.initialMeettingList();
+    BusinessStore.initialbusinessServices();
+
     // BusinessStore.initialbusinessServices();
     console.log(BusinessStore. businessServices)
     console.log("service", BusinessStore.businessServices);
@@ -40,7 +42,7 @@ const SingleService = observer((x) => {
         <div className="addmeet">
           {/* //כאן תהיה התמונה  */}
       
-        <FormAddMeeting i={id} ></FormAddMeeting>
+        <FormAddMeeting i={service} ></FormAddMeeting>
         </div>
       </div>
     </>

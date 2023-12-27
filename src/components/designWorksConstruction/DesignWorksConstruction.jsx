@@ -6,6 +6,7 @@ import './DesignWorksConstruction.css';
 import SingleService from '../singleService/SingleService';
 import { useEffect } from 'react';
 import { observer } from 'mobx-react';
+import Footer from '../footer/Footer';
 
 
 const DesignWorksConstruction = observer(() => {
@@ -38,6 +39,9 @@ const DesignWorksConstruction = observer(() => {
 
         </div>
       </div>
+      <footer className='footer'>
+        <Footer></Footer>
+      </footer>
 
     </>
   );

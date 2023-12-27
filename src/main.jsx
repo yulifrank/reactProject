@@ -38,6 +38,11 @@ const router = createBrowserRouter([
         errorElement: <div>error contant not found</div>
       },
       {
+        path: '',
+        element: <ServicesList/>,
+        errorElement: <div>error contant not found</div>
+      },
+      {
         path: 'meeting',
         element:<MeetingList/>,
         errorElement: <div>error contant not found</div>

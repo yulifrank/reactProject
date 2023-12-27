@@ -131,17 +131,39 @@
   height: 40vw;
 }
 
-.singleservicediv > div {
+.singleservicediv>div {
   margin-bottom: 10px;
   font-size: 18px;
   text-align: center;
 }
 
-.singleservicediv > div:last-child {
+.singleservicediv>div:last-child {
   margin-bottom: 0;
 }
 
 /* Add any additional CSS styles here */
-.css-sghohy-MuiButtonBase-root-MuiButton-root{background-color: #7cbbcc !important ;
-margin-left: 20%; }
-.css-sghohy-MuiButtonBase-root-MuiButton-root:hover{background-color: #7d99a6 !important ; }
+.css-sghohy-MuiButtonBase-root-MuiButton-root {
+  background-color: #7cbbcc !important;
+  margin-left: 30%;
+}
+
+.css-sghohy-MuiButtonBase-root-MuiButton-root:hover {
+  background-color: #7d99a6 !important;
+}
+
+.footer {
+  margin-top: 20%;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
+  background-color: #7cbbcc !important;
+  color: #f1f1f1 !important;
+  
+}
+.css-mm42gz-MuiButtonBase-root-MuiFab-root{
+  margin-right: 90% !important;
+  /* margin-top: -10%; */
+  /* margin-top: 3% !important; */
+
+}

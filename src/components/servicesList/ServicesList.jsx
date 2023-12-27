@@ -35,7 +35,7 @@ const ServicesList = observer(() => {
                 {BusinessStore.businessServices.map((c, i) => 
                 
                         <div className='singlemeetingtoadmin'>
-                            <h3>{c.name}</h3>
+                            <h3 className='nameserv' >{c.name}</h3>
                             <div className='des'>{c.describtion}</div>
                             <div className='button1'>
                             </div>

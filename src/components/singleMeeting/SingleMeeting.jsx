@@ -7,20 +7,19 @@ const SingleMeeting = observer(({ i }) => {
     const today = new Date();
     const meetingDate = new Date(dateTime);
 
-    // Calculate the difference in days between two dates
     const timeDiff = Math.abs(meetingDate.getTime() - today.getTime());
     const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-if(  diffDays<0) 
- return 'non'
+   if(  diffDays<0) 
+    return 'non'
 else
     if (diffDays===1) {
-      return 'red'; // Today
+      return 'red'; // היום
     } else if (diffDays <= 7) {
-      return 'orange'; // This week
+      return 'orange'; //השבוע
     } 
     else if (diffDays >=7) 
     {
-      return 'green'; // Further away
+      return 'green'; // עתיד
     
     }
  
@@ -30,6 +29,7 @@ else
     <>
       <div className="SingleMeeting">
         <h3>נקבעה פגישה לשירות:</h3>
+        console.log({i});
         <h2 className="SingleMeeting-title">{MeetingStore.meettingList[i].serviceName}</h2>
         <h2 className="SingleMeeting-description">{MeetingStore.meettingList[i].serviceDescription}</h2>
         <h2 className="SingleMeeting-price">{MeetingStore.meettingList[i].servicePrice}</h2>
