@@ -29,7 +29,6 @@ else
     <>
       <div className="SingleMeeting">
         <h3>נקבעה פגישה לשירות:</h3>
-        console.log({i});
         <h2 className="SingleMeeting-title">{MeetingStore.meettingList[i].serviceName}</h2>
         <h2 className="SingleMeeting-description">{MeetingStore.meettingList[i].serviceDescription}</h2>
         <h2 className="SingleMeeting-price">{MeetingStore.meettingList[i].servicePrice}</h2>
