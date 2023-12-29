@@ -40,9 +40,8 @@ const SingleService = observer((x) => {
           </div>
         </div>
         <div className="addmeet">
-          {/* //כאן תהיה התמונה  */}
       
-        <FormAddMeeting i={service} ></FormAddMeeting>
+        <FormAddMeeting i={service} name={service&&service.name}></FormAddMeeting>
         </div>
       </div>
     </>

@@ -14,12 +14,12 @@ import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 
 
-const FormUpdateBusinessData = observer(({ servNum = 0 }) => {
+const FormUpdateBusinessData = observer(({ func }) => {
     useEffect(() => {
         BusinessStore.initialBusinessDetails();
     
       },[])
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     const [formData, setFormData] = useState({
         name: BusinessStore.businessDetails.name,
         address: BusinessStore.businessDetails.address,
@@ -71,15 +71,21 @@ const FormUpdateBusinessData = observer(({ servNum = 0 }) => {
         // Reset the form after submitting
       
         setIsOpen(false);
+        func()
     };
     return (
         <>
-            {/* <Button variant="contained" onClick={() => setIsOpen(true)}>שינוי פרטי עסק</Button> */}
-            <Fab color="blue"  onClick={() => setIsOpen(true)}  aria-label="add">
+            {/* <Button variant="contained"  style={{
+          position: 'fixed',
+          top: '12%',
+          right: '40%',
+        }} onClick={() => setIsOpen(true)}>לחץ כאן על מנת לשנות את פרטי העסק</Button> */}
+            {/* <Fab color="blue"  onClick={() => setIsOpen(true)}  aria-label="add">
         <EditIcon />
-      </Fab>
-            <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
-                <DialogTitle>  הוספת שירות לעסק </DialogTitle>
+      </Fab> */}
+       
+            <Dialog open={isOpen} onClose={() => {setIsOpen(false) ,func()}}>
+                <DialogTitle>  שינוי פרטי עסק</DialogTitle>
                 <DialogContent>
                     <form onSubmit={handleSubmit} className="Form">
                         <div className="PopupsInput">

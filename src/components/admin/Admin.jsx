@@ -19,27 +19,41 @@ import LoginPage from "../loginPage/LoginPage";
 import { Outlet, Link } from "react-router-dom";
 import { useEffect } from "react";
 import Footer from "../footer/Footer";
+import FormUpdateBusinessData from "../formUpdateBusinessData/FormUpdateBusinessData";
 
 
 const Admin = observer(() => {
+  const [isEditMode, setIsEditMode] = useState(false);
+  const handleEditModeToggle = () => {
+    setIsEditMode(!isEditMode);
+  };
   useEffect(() => {
     if (localStorage.getItem("isLogin") === "true") {
       BusinessStore.setIsLogin(true);
     }
     BusinessStore.initialbusinessServices();
-    console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
     BusinessStore.initialBusinessDetails();
    
-   
-    console.log("log",BusinessStore.businessServices.length);
-
   }, []);
   return (
     <>
     <div className="alll">
-      <BusinessDetailsComponent></BusinessDetailsComponent>
+      {/* <BusinessDetailsComponent></BusinessDetailsComponent> */}
       {BusinessStore.isLogin ?
         <>
+        <Fab
+        color="blue"
+        aria-label="add"
+        onClick={handleEditModeToggle} // Toggle the isEditMode variable on button click
+        style={{
+          position: 'fixed !imporotant',
+          top: '30px !imporotant',
+          right: '30px !imporotant',
+        }}
+      >
+        <EditIcon />
+      </Fab>
+      {isEditMode?(<FormUpdateBusinessData func={setIsEditMode} ></FormUpdateBusinessData>):<BusinessDetailsComponent></BusinessDetailsComponent>}
           <div className='button-container'>
             <Button variant="outlined" ><Link to="./services">services</Link></Button>
             <Button variant="outlined" ><Link to="./meeting">meeting</Link></Button>

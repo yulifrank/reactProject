@@ -59,8 +59,8 @@ class MeetingStore {
               return true
         }
         Swal.fire({
-            title: 'error',
-            text: 'לא ניתן לקבוע את הפגישה',
+            title: 'תאריך זה תפוס',
+            text: '  נא קבעו תאריך אחר לא ניתן לקבוע את הפגישה',
             icon: "error"
           });
           return false
@@ -78,5 +78,4 @@ class MeetingStore {
       
 }
 export default new MeetingStore();
-
-
+//

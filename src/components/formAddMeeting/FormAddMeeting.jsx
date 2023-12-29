@@ -22,7 +22,7 @@ import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 
 
 import { useEffect } from "react";
-const FormAddMeeting = observer(({ i  }) => {
+const FormAddMeeting = observer(({ i, name }) => {
 
  
   useEffect(() => {
@@ -38,7 +38,7 @@ const FormAddMeeting = observer(({ i  }) => {
   const [isOpen, setIsOpen] = useState(false);//טופס של הוספת פגישה יוצג במקרה בו מזתנה זה  true.
   // const [isFormValid, setIsFormValid] = useState(false);//
   const [formData, setFormData] = useState({
-    serviceName: i?.name,
+    serviceName: "שונות",
     serviceDescription: i?.describtion,
     servicePrice: i?.price,
     clientName: '',
@@ -64,14 +64,6 @@ const handleDateTimeChange = (dateTime) => {
     handleInputChange({ target: { name: 'dateTime', value: formattedDateTime } });
 };
 
-
-
-
-
-
-
-
-
   //פונקצית שליחה היא בודקת האם מולאו כל הפרטים
   // אם כן  היא קוראת לפונקצית הוספת פגישה של ה סטור ומקפיצה הודעה שה"פגישה נקבעה אחרת
   //אם לא היא מקפיצה הודעה שלא מולאו כל הפרטים ולא מוסיפה פגישה!
@@ -91,7 +83,7 @@ const handleDateTimeChange = (dateTime) => {
     console.log("form", formData.clientEmail, formData.dateTime)
     // איפוס המשתנים.........
     setFormData({
-      serviceName: i?.name,
+      serviceName:name,
       serviceDescription:i?.describtion,
       servicePrice: i?.price,
       clientName: '',
@@ -100,9 +92,6 @@ const handleDateTimeChange = (dateTime) => {
       meetingDateTime: null,    });
 
   };
-
-//שבי? יש מצב שאני נותנת לך עוד חמש דקות להשתלט שוב? םשוט אנחנו  עושות שניה שיר לאחותי בזום אוקי?
-
 
 
   return (

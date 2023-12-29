@@ -5,6 +5,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import './LoginPage.css';
 import Swal from 'sweetalert2'
 import BusinessStore from '../../stores/businessDetails'
+import BusinessDetailsComponent from '../businessDetails/BusinessDetailsComponent';
 
 const LoginPage = () => {
   const [name, setName] = useState('');
@@ -82,7 +83,9 @@ const LoginPage = () => {
   }
   
   return (
-    <Box
+    <>
+       <BusinessDetailsComponent></BusinessDetailsComponent> 
+      <Box
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -134,6 +137,7 @@ const LoginPage = () => {
         >log In</Button>
       </Box>
     </Box>
+    </>
   );
 };
 
