@@ -218,7 +218,8 @@ class BusinessStore {
       console.log("true", details.name);
     }
   };
-  initialBusinessDetails = async () => {
+  initialBusinessDetails = 
+  async () => {
     const response = await fetch("http://localhost:8787/businessData");
     const data = await response.json();
     console.log(data);

@@ -24,7 +24,7 @@ const LoginPage = () => {
     //   console.log(BusinessStore.businessDetails.name)
     BusinessStore.initBusinessDetails(BusinessStore.businessDetails);
   // }
-  //  BusinessStore.initialBusinessDetails()
+   BusinessStore.initialBusinessDetails()
     console.log("log",BusinessStore.businessServices.length);
 
   }, );
