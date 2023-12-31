@@ -90,17 +90,9 @@ class BusinessStore {
     ]
   businessDetails =
     {
-      name: "Design Works Construction",
-      address: "רחוב הירקון 20 רמת גן",
-      phone: "073-375-3175",
-      owner: "4532452",
-      logo: { logo },
-      description: "אנחנו צוות הבנייה, קבוצת אנשי מקצוע מתחום הבניה , התכנון וההנדסה האזרחית בעלי ניסיון רב שנים של עשייה ופעילות בתחומים שונים"
-
     }
     
   isLogin = false;
-
 
   constructor() {
     makeObservable(this,
@@ -179,7 +171,7 @@ class BusinessStore {
   }
   setBusinessDetails = async (details) => {
     const response = await fetch("http://localhost:8787/businessData", {
-      method: "PUT",
+      method: "POST",
       body: JSON.stringify(details),
       headers: {
         "Content-Type": "application/json",
@@ -218,8 +210,7 @@ class BusinessStore {
       console.log("true", details.name);
     }
   };
-  initialBusinessDetails = 
-  async () => {
+  initialBusinessDetails = async () => {
     const response = await fetch("http://localhost:8787/businessData");
     const data = await response.json();
     console.log(data);
@@ -231,10 +222,6 @@ class BusinessStore {
 
 }
 export default new BusinessStore();
-
-
-
-
 
 
 

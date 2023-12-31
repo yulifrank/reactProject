@@ -28,6 +28,8 @@ const Admin = observer(() => {
     setIsEditMode(!isEditMode);
   };
   useEffect(() => {
+
+    
     if (localStorage.getItem("isLogin") === "true") {
       BusinessStore.setIsLogin(true);
     }
