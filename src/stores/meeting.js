@@ -1,67 +1,25 @@
 import { observable, makeObservable, action, computed } from 'mobx';
 import Swal from 'sweetalert2'
 
-const meeting = {
+// const meeting = {
 
-    serviceName: '',
-    serviceDescription: '',
-    servicePrice: '',
-    clientName: '',
-    clientPhone: '',
-    clientEmail: '',
-    dateTime: '',
-}
+//     serviceName: '',
+//     serviceDescription: '',
+//     servicePrice: '',
+//     clientName: '',
+//     clientPhone: '',
+//     clientEmail: '',
+//     dateTime: '',
+// }
+
+
+
+//סטור גלובלי שמכיל את כל נתוני הפגישות ופונקציות להוספת פגישות
 class MeetingStore {
 
     meettingList = observable([
 
     ]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
 
     constructor() {
         makeObservable(this,
@@ -72,15 +30,11 @@ class MeetingStore {
                 initialMeettingList:action
             }
         )
-   
-
     }
     
     get currentList() {
         return this.meettingList;
     }
-
-  
 
     addMeeting = async (meeting) => {
         const response = await fetch("http://localhost:8787/appointment", {
@@ -113,15 +67,15 @@ class MeetingStore {
       
      
     }
+    //פונקצית get
     initialMeettingList = async () => {
         const response = await fetch("http://localhost:8787/appointments");
         const data = await response.json();
         console.log(data);
-    
         const sortedData = [...data].sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
         this.meettingList =  sortedData;
       }
       
 }
 export default new MeetingStore();
-//
+// אוביקט יחיד 

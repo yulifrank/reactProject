@@ -4,6 +4,7 @@ import SingleMeeting from '../singleMeeting/SingleMeeting';
 import { useEffect } from "react";
 import './MeetingList.css'
 
+//רשימת הפגישות
 const MeetingList = observer(() => {
       
       useEffect(() => {

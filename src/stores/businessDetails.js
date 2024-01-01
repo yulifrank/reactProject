@@ -115,7 +115,6 @@ class BusinessStore {
       this.businessServices.map(s => this.addService(s))
     console.log("the new length is: ", this.businessServices.length)
 
-
   }
   setIsLogin = (val) => {
     this.isLogin = val;
@@ -124,43 +123,46 @@ class BusinessStore {
 
   }
   addService = async (newServiceDetails) => {
-
-    if (this.businessServices.length > 6) {
-      newServiceDetails.id = String(this.businessServices.length)
-      newServiceDetails.image = Image11
-      newServiceDetails.image2 = Image19
-      newServiceDetails.image3 = Image18
-    }
-    const response = await fetch("http://localhost:8787/service", {
-      method: "POST",
-      body: JSON.stringify(newServiceDetails),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    console.log(response.statusText);
-    if (response.status === 200) {
-      this.businessServices = ([...this.businessServices, newServiceDetails])
-      console.log("true")
-      console.log(this.businessServices.length)
-      if (this.businessServices.length > 6)
-      Swal.fire({
-        title: "נוסף שירות חדש",
-        text: "פרטיך נקלטו בהצלחה",
-        icon: "success"
+    try {
+      if (this.businessServices.length > 6) {
+        newServiceDetails.id = String(this.businessServices.length);
+        newServiceDetails.image = Image11;
+        newServiceDetails.image2 = Image19;
+        newServiceDetails.image3 = Image18;
+      }
+  
+      const response = await fetch("http://localhost:8787/service", {
+        method: "POST",
+        body: JSON.stringify(newServiceDetails),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-      return
+  
+      if (response.status === 200) {
+        this.businessServices = [...this.businessServices, newServiceDetails];
+        console.log("true");
+        console.log(this.businessServices.length);
+  
+        if (this.businessServices.length > 6) {
+          Swal.fire({
+            title: "A new service has been added",
+            text: "Your details have been successfully received",
+            icon: "success",
+          });
+        }
+  
+        return;
+      }
+    } catch (error) {
+      Swal.fire({
+        title: "Error",
+        text: "Unable to schedule the meeting",
+        icon: "error",
+      });
     }
-    // Swal.fire({
-    //     title: 'error',
-    //     text: 'לא ניתן לקבוע את הפגישה',
-    //     icon: "error"
-    //   });
-    return
-
-
-  }
-
+  };
+  
   initialbusinessServices = async () => {
 
     const response = await fetch("http://localhost:8787/services");
@@ -218,7 +220,6 @@ class BusinessStore {
     console.log("businessDetails", this.businessDetails);
   };
   
-
 
 }
 export default new BusinessStore();

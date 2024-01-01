@@ -9,7 +9,7 @@ import serviceImage from "../../assets/images/with-supplies.jpg"; // Import the 
 import { useEffect } from "react";
 import MeetingStore from '../../stores/meeting'
 
-
+//ת...   שמקבלuseOutletContext קומפוננטה זו מציגה שירות עסק יחיד על ידי ה
 const SingleService = observer((x) => {
   const id = useOutletContext()|x;
   const service = BusinessStore.businessServices.find(
@@ -18,13 +18,9 @@ const SingleService = observer((x) => {
   useEffect(() => {
     MeetingStore.initialMeettingList();
     BusinessStore.initialbusinessServices();
-
-    // BusinessStore.initialbusinessServices();
     console.log(BusinessStore. businessServices)
     console.log("service", BusinessStore.businessServices);
-
   },[])
-
 
   return (
     <>

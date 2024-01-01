@@ -12,17 +12,11 @@ import NavigationIcon from '@mui/icons-material/Navigation';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import FormAddService from '../formAddService/FormAddService';
-import { useEffect } from 'react';
 
 
+//הצגת הרשימה של פרטי העסק
 const ServicesList = observer(() => {
 
-
-    useEffect(() => {
-       
-        // BusinessStore.initialbusinessServices();
-    
-      }, []);
     const [showEditService, setShowEditService] = useState(false)
     return (
         <>

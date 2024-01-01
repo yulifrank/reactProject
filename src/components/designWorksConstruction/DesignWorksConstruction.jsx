@@ -18,7 +18,7 @@ const DesignWorksConstruction = observer(() => {
   }, []);
 
   const { id } = useParams();
-
+//הצגת העסק כולל שירותי העסק עם ה side bar
   return (
     <>
       <header className='header'>

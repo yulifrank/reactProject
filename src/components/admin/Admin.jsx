@@ -29,7 +29,7 @@ const Admin = observer(() => {
   };
   useEffect(() => {
 
-    
+  //בדיקה האם קים בלוקלסטורג'
     if (localStorage.getItem("isLogin") === "true") {
       BusinessStore.setIsLogin(true);
     }
@@ -40,7 +40,6 @@ const Admin = observer(() => {
   return (
     <>
     <div className="alll">
-      {/* <BusinessDetailsComponent></BusinessDetailsComponent> */}
       {BusinessStore.isLogin ?
         <>
         <Fab
@@ -53,6 +52,7 @@ const Admin = observer(() => {
           right: '30px !imporotant',
         }}
       >
+        {/* //קומפוננטה להצגת שתי הכפתורים */}
         <EditIcon />
       </Fab>
       {isEditMode?(<FormUpdateBusinessData func={setIsEditMode} ></FormUpdateBusinessData>):<BusinessDetailsComponent></BusinessDetailsComponent>}

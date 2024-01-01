@@ -13,7 +13,7 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 
-
+//טופס של עידכון פרטי העסק
 const FormUpdateBusinessData = observer(({ func }) => {
     useEffect(() => {
         BusinessStore.initialBusinessDetails();
@@ -75,15 +75,6 @@ const FormUpdateBusinessData = observer(({ func }) => {
     };
     return (
         <>
-            {/* <Button variant="contained"  style={{
-          position: 'fixed',
-          top: '12%',
-          right: '40%',
-        }} onClick={() => setIsOpen(true)}>לחץ כאן על מנת לשנות את פרטי העסק</Button> */}
-            {/* <Fab color="blue"  onClick={() => setIsOpen(true)}  aria-label="add">
-        <EditIcon />
-      </Fab> */}
-       
             <Dialog open={isOpen} onClose={() => {setIsOpen(false) ,func()}}>
                 <DialogTitle>  שינוי פרטי עסק</DialogTitle>
                 <DialogContent>

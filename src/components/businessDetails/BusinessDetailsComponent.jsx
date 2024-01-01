@@ -14,8 +14,7 @@ import BusinessStore from "../../stores/businessDetails"
 
 const BusinessDetailsComponent = observer(() => {
   useEffect(() => {
-    BusinessStore.initialBusinessDetails()
-       
+    BusinessStore.initialBusinessDetails()   
   }, []);
 
   return (
@@ -23,7 +22,6 @@ const BusinessDetailsComponent = observer(() => {
     businessDetails.businessDetails&& 
     <header className="business-header">
           {/* {businessDetails.isLogin?<FormUpdateBusinessData></FormUpdateBusinessData>:<></>} */}
-
       <div className="business-details">
         <div className="business-info">
           <h1 className="business-name">{businessDetails.businessDetails.name}</h1>

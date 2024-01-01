@@ -34,11 +34,11 @@ const FormAddMeeting = observer(({ i, name }) => {
 
   },[])
 
-  //איך אני יוצרת אוביקט מסוג meeting?
+  // אני יוצרת אוביקט מסוג meeting
   const [isOpen, setIsOpen] = useState(false);//טופס של הוספת פגישה יוצג במקרה בו מזתנה זה  true.
   // const [isFormValid, setIsFormValid] = useState(false);//
   const [formData, setFormData] = useState({
-    serviceName: "שונות",
+    serviceName: i?i.name:"שונות",
     serviceDescription: i?.describtion,
     servicePrice: i?.price,
     clientName: '',

@@ -11,7 +11,7 @@ const LoginPage = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [isLogin, setIsLogin] = useState(false);
-
+//דף כניסת מנהל אתר לדף האדמין 
   useEffect(() => {
     async function fetchData() {
       // You can await here
@@ -27,7 +27,6 @@ const LoginPage = () => {
         description: "אנחנו צוות הבנייה, קבוצת אנשי מקצוע מתחום הבניה , התכנון וההנדסה האזרחית בעלי ניסיון רב שנים של עשייה ופעילות בתחומים שונים"
   });
       }
-      // ...
     }
     fetchData();
   }, []);
@@ -66,7 +65,6 @@ const LoginPage = () => {
       }).then((result) => {
         if (result.dismiss === Swal.DismissReason.timer) {
           console.log("I was closed by the timer");
-          // window.location.href = "/admin";
         }
       });
     }

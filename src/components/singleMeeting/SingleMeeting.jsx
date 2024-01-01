@@ -2,11 +2,13 @@ import MeetingStore from '../../stores/meeting'
 import { observer } from 'mobx-react';
 import './SingleMeeting.css';
 import { useEffect } from "react";
+
+//קומפוננטה זו אחראית על הצגת פגישה...
 const SingleMeeting = observer(({ i }) => {
-  const getMeetingColor = (dateTime) => {
+const getMeetingColor = (dateTime) =>
+ {
     const today = new Date();
     const meetingDate = new Date(dateTime);
-
     const timeDiff = Math.abs(meetingDate.getTime() - today.getTime());
     const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
    if(  diffDays<0) 
