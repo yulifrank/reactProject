@@ -21,35 +21,35 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <DesignWorksConstruction />,
-    errorElement:<div>error app</div>,
+    errorElement:<div>error DesignWorksConstruction</div>,
     children: [
           {
             path: ':id',
             element: <SingleService />,
-            errorElement:<div>error contant not found</div>
+            errorElement:<div>error SingleService not found</div>
           }]
   },
  
   {
     path: '/admin',
     element: <Admin />,
-    errorElement: <div>error contants</div>,
+    errorElement: <div>error Admin</div>,
     children: [
    
       {
         path: 'services',
         element: <ServicesList/>,
-        errorElement: <div>error contant not found</div>
+        errorElement: <div>error ServicesList not found</div>
       },
       {
         path: '',
         element: <ServicesList/>,
-        errorElement: <div>error contant not found</div>
+        errorElement: <div>error ServicesList not found</div>
       },
       {
         path: 'meeting',
         element:<MeetingList/>,
-        errorElement: <div>error contant not found</div>
+        errorElement: <div>error MeetingList not found</div>
       }
     ]
   }
