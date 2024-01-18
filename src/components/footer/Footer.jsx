@@ -1,19 +1,10 @@
 import React from 'react';
 import { Container, Grid, TextField, Button } from '@mui/material';
 import BusinessStore from '../../stores/businessDetails'
-
-// import businessDetails  from '../../stores/businessDetails .js'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import TwitterIcon from '@mui/icons-material/Twitter';
-// import logo from '../../assets/images/logo2.png'
-// import lcon1 from '../../assets/images/icons/facebook-new.png'
-// import lcon2 from '../../assets/images/icons/instagram-new.png'
-// import lcon3 from '../../assets/images/icons/twitter.png'
-// import lcon4 from '../../assets/images/icons/whatsapp.png'
-// import lcon5 from '../../assets/images/icons/pinterest.png'
-
 import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import PhoneIphoneRoundedIcon from '@mui/icons-material/PhoneIphoneRounded';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';

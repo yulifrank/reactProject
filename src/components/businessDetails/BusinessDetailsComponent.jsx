@@ -5,7 +5,6 @@ import logo from "../../assets/images/logo.png";
 import { useObserver } from "mobx-react-lite";
 import ServicesList from "../servicesList/ServicesList";
 import { Button } from "@mui/material";
-import FormUpdateBusinessData from "../formUpdateBusinessData/FormUpdateBusinessData";
 import { useEffect, useState } from "react";
 import BusinessStore from "../../stores/businessDetails"
 

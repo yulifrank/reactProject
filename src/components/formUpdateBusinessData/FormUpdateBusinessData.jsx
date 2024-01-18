@@ -9,9 +9,7 @@ import TextField from '@mui/material/TextField';
 import Swal from 'sweetalert2'
 import BusinessStore from '../../stores/businessDetails'
 import { useEffect } from "react";
-import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
+
 
 //טופס של עידכון פרטי העסק
 const FormUpdateBusinessData = observer(({ func }) => {
@@ -48,13 +46,10 @@ const FormUpdateBusinessData = observer(({ func }) => {
                     event.preventDefault();
                     BusinessStore.setBusinessDetails(formData);
 
-
                 } else if (result.isDenied) {
                     Swal.fire("Changes are not saved", "", "info");
                 }
             });
-
-
         }
         else {
             Swal.fire({
@@ -65,11 +60,8 @@ const FormUpdateBusinessData = observer(({ func }) => {
                 imageHeight: 200,
                 imageAlt: "image"
             });
-
         }
-
         // Reset the form after submitting
-      
         setIsOpen(false);
         func()
     };

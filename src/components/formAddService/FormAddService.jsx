@@ -11,7 +11,6 @@ import BusinessStore from '../../stores/businessDetails'
 import Image29 from "../../assets/images/29.jpg";
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
 
 //טופס של הוספה
 const FormSetService = observer(({ servNum = 0 }) => {
