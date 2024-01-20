@@ -25,7 +25,9 @@
 "react-dom": "^18.2.0",
 "react-modal": "^3.16.1",
 "react-router-dom": "^6.21.0",
-"sweetalert2": "^11.10.1"
+"sweetalert2": "^11.10.1",
+"@emotion/react": "^11.11.1",
+"@emotion/styled": "^11.11.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
